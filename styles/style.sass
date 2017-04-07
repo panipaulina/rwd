@@ -1,0 +1,601 @@
+@import "_reset.sass"
+
+@font-face
+	font-family: 'Stone Harbour Regular'
+	src: url('../fonts/STONEHARBOUR-Regular.otf')
+
+@font-face
+	font-family: 'Orev Light'
+	src: url('../fonts/Orev-Light.ttf')
+
+@font-face
+	font-family: 'Orev Extrabold'
+	src: url('../fonts/Orev-ExtraBold.ttf')
+
+@font-face
+	font-family: 'Orev Semilight'
+	src: url('../fonts/Orev-SemiLight.ttf')
+
+@font-face
+	font-family: 'Orev Medium Italic'
+	src: url('../fonts/Orev-MediumItalic.ttf')
+
+$bgc: #fff
+$tc: #000
+$yellow: #cbaa44
+$site-width: 1170px
+$section-height: 540px
+$stone: Stone Harbour Regular
+$ff: Orev Light
+$f-bold: Orev Extrabold
+$f-italic: Orev Medium Italic
+$bg-green: #90a387
+$shadow: 2px 2px 2px #ccc
+
+
+*
+	box-sizing: border-box
+
+a 
+	text-decoration: none
+	text-transform: uppercase
+	color: $tc
+	transition: .3s
+
+h1
+	font-size: 4em
+	font-family: Orev Semilight
+	padding-bottom: 40px
+
+h2
+	font-size: 30px
+	font-family: $ff
+	font-weight: 900
+	margin-top: 10px
+
+body
+	font-family: $ff
+	font-size: 20px
+
+/* back button */
+
+#back
+	position: fixed
+	bottom: 15px
+	right: 15px
+	width: 40px
+	height: 40px
+	/* border: 1 solid $yellow */
+	cursor: pointer
+	border-radius: 4px
+	z-index: 2
+	display: none
+
+	&::before
+		position: relative
+		content: ""
+		display: block
+		width: 20px
+		height: 20px
+		border-top: 3px solid $yellow
+		border-right: 3px solid $yellow
+		top: 50%
+		left: 12%
+		transform: translateY(-5px) translateX(2.5px) rotate(-45deg)
+		
+
+
+/* nav */
+
+nav 
+	width: 100%
+	background-color: $bgc
+
+.n-content
+	max-width: $site-width
+	margin: 0 auto
+	padding: 20px 0
+	text-align: center
+
+	ul
+		font-size: 0
+
+	li
+		display: inline-block
+		margin: 0 60px
+		font-size: 23px
+
+	a 
+		@extend a
+		font-family: $f-bold
+		color: #487542
+
+		&::before
+			color: $tc
+			content: attr(data-hover)
+			position: absolute
+			transition: transform 0.3s, opacity 0.3s
+
+		&:hover::before,
+		&:focus::before
+			transform: scale(1.1)
+			opacity: 0
+
+
+/* header */
+
+header
+	background-image: url('../pics/bg.jpg')
+	background-attachment: fixed
+	background-position: top
+	width: 100%
+	height: $section-height
+	
+.h-content
+	background-image: url('../pics/txt.png')
+	background-size: cover
+	width: 100%
+	height: $section-height
+
+	span
+		text-align: center
+		display: block
+		color: $bgc
+		line-height: 500px
+		font-size: 15em
+		font-family: $stone
+
+/* gs */
+
+.gs 
+	max-width: $site-width
+	margin: 0 auto
+	text-align: center
+	padding: 100px 0
+
+.gs-row
+	display: flex
+	padding: 20px 0
+	align-items: center
+
+.gs-col1
+	flex: 1
+	border-left: 3px solid $bg-green
+
+	p
+		font-family: $stone
+		font-size: 70px
+	
+.gs-col7
+	flex: 7
+	text-align: left
+	padding: 0 15px
+
+/* story */
+
+.story 
+	width: 100%
+	background-attachment: fixed
+	background-size: cover
+	background-image: url('../pics/bg4.jpg')
+	position: relative
+
+.s-image
+	@extend .h-content
+	position: relative
+	background-image: url('../pics/txt4.png')
+	background-position: top
+	background-size: 1920px 60px
+	background-repeat: no-repeat
+	height: auto
+
+	h1
+		color: $bgc
+		padding-top: 100px
+		text-align: center
+
+	.controls
+		width: 132px
+		height: 50px
+		margin: 0 auto
+		padding-bottom: 70px
+
+		.control-dot
+			display: inline-block
+			margin: 0 10px
+			width: 10px
+			height: 10px
+			border-radius: 50%
+			border: 1px solid $yellow
+			cursor: pointer
+
+		.active
+			background-color: $yellow
+
+.bottom-border
+	position: absolute
+	width: 100%
+	height: 51px
+	bottom: 0
+	background-image: url('../pics/txt5.png')
+	background-size: 1920px 51px
+	background-repeat: no-repeat
+	background-position: bottom
+
+.slider-btn
+	width: 20px
+	height: 50px
+	position: absolute
+	top: 50%
+	transform: translateY(-10px)
+	cursor: pointer
+
+.btn-left
+	left: 20px
+
+	&::before
+		content: ""
+		width: 20px
+		height: 20px
+		border-top: 2px solid $yellow
+		border-left: 2px solid $yellow
+		position: relative
+		display: block
+		transform: rotate(-45deg)
+
+.btn-right
+	right: 20px
+
+	&::before
+		@extend .btn-left::before
+		transform: rotate(135deg)
+
+.s-content
+	@extend .gs
+	color: $bgc
+	padding-top: 0
+	
+	
+	.active
+		
+
+	p
+		padding: 0
+
+/* gallery */
+
+.gal 
+	@extend .gs
+	padding: 100px 0
+
+.gal-row
+	display: flex
+	justify-content: space-between
+	height: 15vh
+
+	&:last-child
+		margin-right: 0
+
+[class*="gal-col"]
+	background-position: center
+	background-size: cover
+	margin: 0 10px 10px 0
+	border-radius: 8px
+	box-shadow: $shadow
+	transition: .3s
+
+	&:last-child
+		margin-right: 0
+
+	&:hover
+		cursor: pointer
+		opacity: .5
+
+	img
+		opacity: 0
+		width: 100%
+		height: 15vh
+
+	
+	a:visited, a:active, a:focus
+		outline: 0
+	
+
+.gal-col1
+	flex: 1
+	
+.gal-col2
+	flex: 2
+	
+.gal-col3
+	flex: 3
+	
+.gal-col4
+	flex: 4
+
+.img1
+	background-image: url(../pics/eco1.jpg)
+
+.img2
+	background-image: url(../pics/eco2.jpg)
+
+.img3
+	background-image: url(../pics/eco3.jpg)
+
+.img4
+	background-image: url(../pics/eco4.jpg)
+
+.img5
+	background-image: url(../pics/eco5.jpg)
+
+.img6
+	background-image: url(../pics/eco6.jpg)
+
+.img7
+	background-image: url(../pics/eco7.jpg)
+
+/* contact */
+
+.contact 
+	width: 100%
+	background-attachment: fixed
+	background-size: cover
+	background-image: url('../pics/bg2.jpg')
+
+.c-content
+	@extend .h-content
+	background-image: url('../pics/txt2.png')
+
+.form-content
+	@extend .gs
+	margin: auto
+	color: $bgc
+
+form
+	text-align: left
+
+.low-res
+	display: none
+
+.form-row
+	display: flex 
+	align-items: flex-end
+	font-size: 30px
+
+.mid 
+	padding: 0 25px
+
+.last
+	text-align: right
+	font-size: 17px
+
+.form-col
+	flex: 1
+
+	p
+		margin-bottom: 30px
+
+	input
+		display: block
+		width: 100%
+		height: 35px
+		background-color: rgba(255, 255, 255, .1)
+		border: 1px solid $bgc
+		color: $bgc
+		font-size: 20px
+		padding: 0 10px
+		border-radius: 4px
+
+		&:active, &:focus
+			background-color: rgba(255, 255, 255, .2)
+			border-color: $yellow
+			outline: none
+
+	textarea
+		@extend input
+		height: 165px
+		padding: 10px
+
+
+.sub
+	width: 100%
+	color: $bgc
+	font-family: $ff
+
+	&:hover
+	background-color: rgba(255, 255, 255, .2)
+	cursor: pointer
+
+/* team */
+
+.team
+	@extend .gs
+
+.team-row
+	display: flex
+
+.team-col
+	flex: 1
+
+	img
+		max-width: 100%
+		height: auto
+		border-radius: 50%
+		margin: 0 auto
+		display: block
+
+	p
+		margin-top: 20px
+		padding: 0 15px
+		text-align: justify
+
+/* footer */
+
+footer
+	background-image: url('../pics/bg3.jpg')
+	background-size: cover
+	background-attachment: fixed
+	background-position: bottom
+	width: 100%
+	height: 300px
+
+.foo-content
+	background-image: url('../pics/txt3.png')
+	background-repeat: no-repeat
+	background-position: top
+	width: 100%
+	height: 300px
+
+.wrapper
+	@extend .gs
+	padding-bottom: 0
+
+.f-row
+	display: flex
+	justify-content: space-between
+	color: $bgc
+
+.f-col
+	flex: 1
+
+	.brand 
+		font-size: 40px
+		font-family: $stone
+
+	a
+		display: inline-block
+		margin: 0 10px
+		color: $bgc
+
+		&:hover
+			color: $yellow
+
+	p
+		padding-bottom: 15px
+
+	.copy
+		padding-top: 15px
+		font-family: $f-bold
+
+	i
+		margin: 0 15px
+		width: 40px
+		height: 40px
+		line-height: 40px
+		text-align: center
+		border-radius: 50%
+
+
+		&:hover
+			cursor: pointer
+			background-color: rgba(255, 255, 255, .5)
+
+
+.f-left
+	text-align: left
+
+.f-right
+	text-align: right
+
+/* media queries */
+
+@media (max-width: 768px)
+	h1
+		font-size: 40px
+		padding-bottom: 20px
+
+	.n-content li
+		display: block
+		width: 100%
+		margin: 0
+
+		&:hover
+			background-color: $bgc
+			color: $tc
+
+	header, .story, .contact, footer
+		background-attachment: scroll
+
+	.h-content span
+		font-size: 60px
+
+	.gs-row, .gal-row, .form-row, .team-row
+		flex-direction: column
+
+	.gs-col1
+		border-top: 3px solid $bg-green
+		border-left: none
+
+	.gs-col7
+		text-align: justify
+
+	.s-content p
+		padding: 0 20px
+
+	.gal-row
+		height: 100vh
+
+	[class*="gal-col"]
+		margin: 0
+		border-radius: 0
+
+	.contact
+		background-attachment: scroll
+
+	form, .form-title
+		display: none
+
+	.low-res
+		display: block
+		margin: 0 15px
+
+		input, textarea
+			display: block
+			width: 100%
+			margin-bottom: 15px
+			background-color: rgba(255, 255, 255, .1)
+			border: 1px solid $bgc
+			color: $bgc
+			font-size: 20px
+			border-radius: 4px
+
+		input:active, input:focus, textarea:active, textarea:focus
+			background-color: rgba(255, 255, 255, .2)
+			border-color: $yellow
+			outline: none
+
+		input
+			height: 35px
+
+		[type="submit"]
+			max-width: 200px
+			margin: 0 auto
+
+		textarea
+			height: 70px
+
+	.f-col
+
+		.info
+			display: none
+
+		a 
+			display: block
+
+	.f-left
+		padding-left: 15px
+
+@media (min-width: 768px) and (max-width: 1200px)
+	.n-content, .gs, .form-content, .wrapper 
+		padding-left: 20px
+		padding-right: 20px
+
+
+@media (max-width: 1250px)
+	.s-content
+		padding-left: 30px
+		padding-right: 30px	
+
+
+
+		
