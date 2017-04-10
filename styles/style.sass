@@ -1,4 +1,5 @@
 @import "_reset.sass"
+@import "_unslider.sass"
 
 @font-face
 	font-family: 'Stone Harbour Regular'
@@ -170,6 +171,7 @@ header
 	flex: 7
 	text-align: left
 	padding: 0 15px
+	line-height: 25px
 
 /* story */
 
@@ -194,23 +196,16 @@ header
 		padding-top: 100px
 		text-align: center
 
-	.controls
-		width: 132px
-		height: 50px
-		margin: 0 auto
-		padding-bottom: 70px
+.quote
+	font-style: italic
+	font-weight: 800
+	font-size: 25px
+	color: $bgc
+	padding-bottom: 50px
 
-		.control-dot
-			display: inline-block
-			margin: 0 10px
-			width: 10px
-			height: 10px
-			border-radius: 50%
-			border: 1px solid $yellow
-			cursor: pointer
-
-		.active
-			background-color: $yellow
+.my-slider ul li
+	line-height: 25px
+	
 
 .bottom-border
 	position: absolute
@@ -222,45 +217,12 @@ header
 	background-repeat: no-repeat
 	background-position: bottom
 
-.slider-btn
-	width: 20px
-	height: 50px
-	position: absolute
-	top: 50%
-	transform: translateY(-10px)
-	cursor: pointer
-
-.btn-left
-	left: 20px
-
-	&::before
-		content: ""
-		width: 20px
-		height: 20px
-		border-top: 2px solid $yellow
-		border-left: 2px solid $yellow
-		position: relative
-		display: block
-		transform: rotate(-45deg)
-
-.btn-right
-	right: 20px
-
-	&::before
-		@extend .btn-left::before
-		transform: rotate(135deg)
 
 .s-content
 	@extend .gs
 	color: $bgc
 	padding-top: 0
 	
-	
-	.active
-		
-
-	p
-		padding: 0
 
 /* gallery */
 
@@ -484,12 +446,12 @@ footer
 		line-height: 40px
 		text-align: center
 		border-radius: 50%
+		transition: .3s
 
 
 		&:hover
 			cursor: pointer
-			background-color: rgba(255, 255, 255, .5)
-
+			color: $yellow
 
 .f-left
 	text-align: left

@@ -45,6 +45,94 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/**
+ *   Here's where everything gets included. You don't need
+ *   to change anything here, and doing so might break
+ *   stuff. Here be dragons and all that.
+ */
+/**
+ *   Default variables
+ *
+ *   While these can be set with JavaScript, it's probably
+ *   better and faster to just set them here, compile to
+ *   CSS and include that instead to use some of that
+ *   hardware-accelerated goodness.
+ */
+.unslider {
+  overflow: auto;
+  margin: 0;
+  padding: 0; }
+
+.unslider-wrap {
+  position: relative; }
+
+.unslider-wrap.unslider-carousel > li {
+  float: left; }
+
+.unslider-vertical > ul {
+  height: 100%; }
+
+.unslider-vertical li {
+  float: none;
+  width: 100%; }
+
+.unslider-fade {
+  position: relative; }
+
+.unslider-fade .unslider-wrap li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 8; }
+
+.unslider-fade .unslider-wrap li.unslider-active {
+  z-index: 10; }
+
+.unslider ul, .unslider ol, .unslider li {
+  list-style: none;
+  /* Reset any weird spacing */
+  margin: 0;
+  padding: 0;
+  border: none; }
+
+.unslider-arrow {
+  position: absolute;
+  left: 20px;
+  z-index: 2;
+  cursor: pointer;
+  color: #cbaa44;
+  font-weight: 600;
+  font-size: 60px; }
+
+.unslider-arrow.next {
+  left: auto;
+  right: 20px; }
+
+.unslider-nav {
+  background: transparent;
+  line-height: 60px; }
+
+.unslider-nav ol {
+  list-style: none;
+  text-align: center; }
+
+.unslider-nav ol li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  background: transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  text-indent: -999em;
+  border: 2px solid #cbaa44;
+  cursor: pointer; }
+
+.unslider-nav ol li.unslider-active {
+  background: #cbaa44;
+  cursor: default; }
+
 @font-face {
   font-family: 'Stone Harbour Regular';
   src: url("../fonts/STONEHARBOUR-Regular.otf"); }
@@ -184,7 +272,8 @@ header {
 .gs-col7 {
   flex: 7;
   text-align: left;
-  padding: 0 15px; }
+  padding: 0 15px;
+  line-height: 25px; }
 
 /* story */
 .story {
@@ -205,21 +294,16 @@ header {
     color: #fff;
     padding-top: 100px;
     text-align: center; }
-  .s-image .controls {
-    width: 132px;
-    height: 50px;
-    margin: 0 auto;
-    padding-bottom: 70px; }
-    .s-image .controls .control-dot {
-      display: inline-block;
-      margin: 0 10px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 1px solid #cbaa44;
-      cursor: pointer; }
-    .s-image .controls .active {
-      background-color: #cbaa44; }
+
+.quote {
+  font-style: italic;
+  font-weight: 800;
+  font-size: 25px;
+  color: #fff;
+  padding-bottom: 50px; }
+
+.my-slider ul li {
+  line-height: 25px; }
 
 .bottom-border {
   position: absolute;
@@ -231,36 +315,9 @@ header {
   background-repeat: no-repeat;
   background-position: bottom; }
 
-.slider-btn {
-  width: 20px;
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-10px);
-  cursor: pointer; }
-
-.btn-left {
-  left: 20px; }
-  .btn-left::before, .btn-right::before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border-top: 2px solid #cbaa44;
-    border-left: 2px solid #cbaa44;
-    position: relative;
-    display: block;
-    transform: rotate(-45deg); }
-
-.btn-right {
-  right: 20px; }
-  .btn-right::before {
-    transform: rotate(135deg); }
-
 .s-content {
   color: #fff;
   padding-top: 0; }
-  .s-content p {
-    padding: 0; }
 
 /* gallery */
 .gal {
@@ -449,10 +506,11 @@ footer {
     height: 40px;
     line-height: 40px;
     text-align: center;
-    border-radius: 50%; }
+    border-radius: 50%;
+    transition: .3s; }
     .f-col i:hover {
       cursor: pointer;
-      background-color: rgba(255, 255, 255, 0.5); }
+      color: #cbaa44; }
 
 .f-left {
   text-align: left; }
