@@ -184,10 +184,10 @@ body {
   right: 15px;
   width: 40px;
   height: 40px;
-  /* border: 1 solid $yellow */
+  border: 1px solid #cbaa44;
   cursor: pointer;
   border-radius: 4px;
-  z-index: 2;
+  z-index: 20;
   display: none; }
   #back::before {
     position: relative;
@@ -195,8 +195,8 @@ body {
     display: block;
     width: 20px;
     height: 20px;
-    border-top: 3px solid #cbaa44;
-    border-right: 3px solid #cbaa44;
+    border-top: 4px solid #cbaa44;
+    border-right: 4px solid #cbaa44;
     top: 50%;
     left: 12%;
     transform: translateY(-5px) translateX(2.5px) rotate(-45deg); }
